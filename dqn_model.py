@@ -1,4 +1,4 @@
-# REMPLACEZ COMPLÈTEMENT le fichier dqn_model.py par :
+
 
 import torch
 import torch.nn as nn
@@ -74,7 +74,7 @@ class DuelingDQN(nn.Module):
         return q_values
 
 
-# Exemple d'utilisation (pour vérification interne)
+# Exemple d'utilisation
 if __name__ == '__main__':
     # Définition des paramètres
     INPUT_SHAPE = (3, 6, 7)
