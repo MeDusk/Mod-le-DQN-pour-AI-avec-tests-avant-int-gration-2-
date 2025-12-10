@@ -32,9 +32,8 @@ class ReplayBuffer:
         """ Retourne la taille actuelle de la mémoire. """
         return len(self.memory)
     
-import numpy as np  # Ajoutez cet import en haut si absent
+import numpy as np  
 
-# AJOUTEZ cette classe AVANT la classe DQNAgent :
 
 class PrioritizedReplayBuffer:
     """Prioritized Experience Replay"""
@@ -225,9 +224,8 @@ class DQNAgent:
         self.policy_net.eval() # Mettre en mode évaluation après le chargement
         self.target_net.eval()
         
-# Exemple d'utilisation (pour vérification interne)
-if __name__ == '__main__':
-    # Nécessite d'importer l'environnement pour un test complet
+# Exemple d'utilisation 
+if __name__ == '__main__'
     from connect_four_env import ConnectFourEnv
     
     # Configuration
@@ -259,11 +257,6 @@ if __name__ == '__main__':
     
     # Test de l'optimisation (nécessite plus d'échantillons)
     print("Test d'optimisation (nécessite BATCH_SIZE échantillons)...")
-    # Pour un test réel, il faudrait remplir la mémoire jusqu'à BATCH_SIZE
-    # Ici, on se contente de vérifier que la méthode existe et ne plante pas immédiatement.
-    # loss = agent.optimize_model()
-    # print(f"Loss: {loss}")
-    
-    # Test de la mise à jour du réseau cible
+
     agent.update_target_network()
     print("Réseau cible mis à jour.")
