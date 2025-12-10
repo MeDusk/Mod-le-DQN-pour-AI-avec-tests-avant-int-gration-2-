@@ -56,10 +56,8 @@ def plot_test_results(file_path='test_results.npy'):
     print("Graphique des résultats de test sauvegardé: test_results_pie.png")
 
 if __name__ == '__main__':
-    # Nécessite matplotlib
     try:
         plot_training_rewards()
         plot_test_results()
     except Exception as e:
         print(f"Erreur lors de la génération des graphiques: {e}")
-        print("Assurez-vous que les fichiers 'training_rewards.npy' et 'test_results.npy' existent.")
