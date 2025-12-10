@@ -166,18 +166,10 @@ Après 15 000 épisodes, l'agent :
 
 ### 1. Variance en Self-Play
 
-Quand l'agent joue contre lui-même, les performances fluctuent beaucoup. C'est normal parce que si les deux joueurs sont de niveau égal, le win rate devrait être autour de 50%. Pour suivre la vraie progression, j'ai dû lisser la courbe sur 100 épisodes.
+Quand l'agent joue contre lui-même, les performances fluctuent beaucoup. Ce qui est normal parce que si les deux joueurs sont de niveau égal, le win rate devrait être autour de 50%. Pour suivre la vraie progression, j'ai dû lisser la courbe sur 100 épisodes.
 
-### 2. Temps d'Entraînement
 
-15 000 épisodes ça prend du temps ! Sur CPU c'était beaucoup trop long (plusieurs jours). J'ai dû :
-- Utiliser un GPU (CUDA) pour accélérer
-- Optimiser le code (vectorisation avec NumPy)
-- Lancer l'entraînement overnight
-
-Au final ça a pris environ 6-8 heures sur GPU.
-
-### 3. Tuning des Hyperparamètres
+### 2. Tuning des Hyperparamètres
 
 Trouver les bons hyperparamètres a demandé pas mal d'essais. Par exemple :
 - Si epsilon decay trop vite → l'agent n'explore pas assez et se bloque dans une stratégie sous-optimale
