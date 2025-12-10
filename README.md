@@ -184,3 +184,4 @@ J'ai dû faire plusieurs runs pour trouver le bon équilibre.
 
 **Auteur** : Mohamed NAJID  
 **Projet** : Robot puissance 4 - M2 IA UCBL  
+**Date** : 10/12/2025
