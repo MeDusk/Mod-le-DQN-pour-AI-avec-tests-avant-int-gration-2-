@@ -9,7 +9,7 @@ from dqn_agent import DQNAgent
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 INPUT_SHAPE = (3, 6, 7)
 NUM_ACTIONS = 7
-MODEL_PATH = "models/dqn_connect_four_final.pth"  # Ou un autre checkpoint
+MODEL_PATH = "models/dqn_connect_four_final.pth"  
 NUM_TEST_GAMES = 100
 RENDER_GAME = True  # Afficher la première partie
 
@@ -32,7 +32,7 @@ def test_dqn(num_games=100, render_first=True, model_path=MODEL_PATH):
         input_shape=INPUT_SHAPE,
         num_actions=NUM_ACTIONS,
         device=DEVICE,
-        EPS_START=0.0,  # Pas d'exploration pendant les tests
+        EPS_START=0.0,  
         EPS_END=0.0
     )
     
@@ -138,13 +138,13 @@ def test_dqn(num_games=100, render_first=True, model_path=MODEL_PATH):
     
     # Évaluation de la performance
     if win_rate >= 80:
-        print("🏆 Performance EXCELLENTE!")
+        print(" Performance EXCELLENTE!")
     elif win_rate >= 60:
-        print("✅ Performance BONNE")
+        print(" Performance BONNE")
     elif win_rate >= 40:
-        print("⚠️  Performance MOYENNE")
+        print("  Performance MOYENNE")
     else:
-        print("❌ Performance FAIBLE - Entraînement supplémentaire requis")
+        print(" Performance FAIBLE - Entraînement supplémentaire requis")
     
     print("="*50 + "\n")
     
@@ -152,7 +152,7 @@ def test_dqn(num_games=100, render_first=True, model_path=MODEL_PATH):
     results = np.array([1 if r == "Victoire" else (0 if r == "Match Nul" else -1) 
                        for _, r in game_histories])
     np.save('test_results.npy', results)
-    print("💾 Résultats sauvegardés dans 'test_results.npy'")
+    print(" Résultats sauvegardés dans 'test_results.npy'")
     
     return game_histories, win_rate
 
@@ -167,7 +167,7 @@ if __name__ == '__main__':
                       if f.endswith('.pth')]
     
     if not model_files:
-        print("❌ Aucun modèle trouvé dans le dossier 'models/'")
+        print(" Aucun modèle trouvé dans le dossier 'models/'")
         print("Entraînez d'abord avec: python train_dqn.py")
     else:
         # Utiliser le dernier modèle (final ou le plus récent)
@@ -176,7 +176,7 @@ if __name__ == '__main__':
         else:
             model_path = sorted(model_files)[-1]
         
-        print(f"📂 Utilisation du modèle: {model_path}\n")
+        print(f" Utilisation du modèle: {model_path}\n")
         
         # Lancer les tests
         results, win_rate = test_dqn(
