@@ -10,7 +10,7 @@ class ConnectFourEnv:
         self.cols = cols
         self.win_length = win_length
         self.board = np.zeros((rows, cols), dtype=int)
-        self.current_player = 1  # 1 pour l'IA (joueur principal), 2 pour l'adversaire
+        self.current_player = 1  
         self.game_over = False
         self.winner = 0
 
@@ -49,13 +49,11 @@ class ConnectFourEnv:
             if self.board[row, col] == 0:
                 self.board[row, col] = player
                 return row, col
-        return -1, col # Ne devrait pas arriver si la colonne est valide
+        return -1, col 
 
     def check_win(self, player):
         """ Vérifie si le joueur a gagné. """
-        # Horizontal, Vertical, Diagonales (montante et descendante)
-        
-        # Helper function for checking a direction
+
         def check_direction(r_start, c_start, r_delta, c_delta):
             count = 0
             for i in range(self.win_length):
@@ -202,7 +200,7 @@ class ConnectFourEnv:
                     threats += self._count_threats(r, c, player)
         return threats       
 
-# Exemple d'utilisation (pour vérification interne)
+# Exemple d'utilisation 
 if __name__ == '__main__':
     env = ConnectFourEnv()
     state = env.reset()
@@ -213,11 +211,6 @@ if __name__ == '__main__':
     state, reward, done, info = env.step(3)
     env.render()
     
-    # Coup 2 (Adversaire - doit être géré manuellement ou par un agent adversaire)
-    # Pour simuler un tour complet (IA -> Adversaire -> IA), nous devons gérer l'adversaire ici.
-    
-    # L'environnement est conçu pour l'entraînement de l'IA (joueur 1).
-    # L'adversaire doit être un agent séparé dans la boucle d'entraînement.
     
     # Pour le test unitaire de l'environnement, on peut forcer le joueur 2 à jouer:
     env.current_player = 2
@@ -229,7 +222,7 @@ if __name__ == '__main__':
     state, reward, done, info = env.step(4)
     env.render()
     
-    # Forcer une victoire de l'IA (colonne 0)
+    # Forcer une victoire de l'IA 
     env.reset()
     env.drop_piece(0, 1)
     env.drop_piece(1, 2)
@@ -245,10 +238,7 @@ if __name__ == '__main__':
     
     # Test du match nul
     env.reset()
-    # Remplir le plateau sans victoire (très long à coder, on se contente de la vérification)
-    # ...
-    
-    # Test des actions invalides
+
     env.reset()
     for _ in range(6):
         env.drop_piece(0, 1)
