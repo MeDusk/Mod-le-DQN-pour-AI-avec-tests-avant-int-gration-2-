@@ -1,4 +1,3 @@
-# REMPLACEZ COMPLÈTEMENT le fichier train_dqn.py par :
 
 import torch
 import numpy as np
